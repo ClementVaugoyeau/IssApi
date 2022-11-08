@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.hateoas.EntityModel;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -61,6 +61,7 @@ class AstronautController{
           .map(astronaut -> {
             astronaut.setName(newAstronaut.getName());
             astronaut.setRole(newAstronaut.getRole());
+            astronaut.setNationality(newAstronaut.getNationality());
             return repository.save(astronaut);
           })
           .orElseGet(() -> {
